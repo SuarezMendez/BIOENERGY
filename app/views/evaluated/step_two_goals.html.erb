@@ -12,8 +12,9 @@
       <% @goals.each do |g| %>
         <%= g.perspective %>
       <% end %>
+      <%= @goals.get_total_weight %>
     <% end %>
     <%= link_to "Crear", new_goal_path(:g_type => @g_type), class:"btn" %>
-    <%= link_to "Aceptar", evaluated_step_two_path, class:"btn" %>
+    <%= link_to "Aceptar", evaluated_step_two_accept_path(:g_type => @g_type), class:"btn" %>
   </div>
 </div>

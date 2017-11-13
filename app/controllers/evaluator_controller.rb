@@ -1,6 +1,6 @@
 class EvaluatorController < ApplicationController
 
-  before_action :set_user, only: [:step_two_type]
+  before_action :set_user, only: [:step_two_employee, :step_two_goals]
 
   def index
   end
@@ -16,11 +16,16 @@ class EvaluatorController < ApplicationController
     @employees = current_user.get_employees.where(step: 1)
   end
 
-  def step_two_type
-  end
-
   def step_two
     @employees = current_user.get_employees
+  end
+
+  def step_two_employee
+  end
+
+  def step_two_goals
+    @g_type = params[:g_type]
+    @goals = @user.goals.where(g_type: @g_type)
   end
 
   def step_three

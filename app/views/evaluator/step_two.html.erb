@@ -1,0 +1,14 @@
+<div>
+  <h1>Paso 2</h1>
+  <h3>Revisión de objetivos</h3>
+  <p align="justify">
+    Chachara
+  </p>
+
+  <div>
+    <% @employees.each do |e| %>
+      <%= e.name %>
+      <%= link_to "Revisar", evaluator_step_two_employee_path(e) %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div>
+  <h1>Paso 2</h1>
+  <h3>Objetivos de <%= @user.name %></h3>
+  <p align="justify">
+    Chachara
+  </p>
+
+  <div>
+    <%= link_to "Corporativos", evaluator_step_two_goals_path(@user, :g_type => 0) %>
+    <%= link_to "Personales", evaluator_step_two_goals_path(@user, :g_type => 1) %>
+    <!--%= link_to "Corporativos", evaluator_step_two_goals_path(@user) %-->
+    <!--%= link_to "Personales", evaluator_step_two_goals_path(@user) %-->
+  </div>
+</div>
