@@ -1,0 +1,17 @@
+<div>
+  <h1>Paso 1</h1>
+  <h3>Apruba a tus evaluados</h3>
+  <p align="justify">
+    Chachara
+  </p>
+
+  <div>
+    <% @employees.each do |e| %>
+      <%= e.name %>
+      <%= link_to "Ver", user_path(e) %>
+    <% end %>
+  </div>
+
+  <%= link_to "Aceptar", evaluator_accept_path %>
+
+</div>

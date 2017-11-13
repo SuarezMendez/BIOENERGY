@@ -1,20 +1,18 @@
+
 class EvaluatedController < ApplicationController
 
   def accept
-    current_user.update(step: 2)
-    redirect_to evaluated_path
+    #current_user.update(step: 2)
+    #redirect_to evaluated_path
   end
 
   def step_one
     @user = current_user
-    @step = current_user.step
     @bosses = current_user.get_bosses
   end
 
   def step_two
     @user = current_user
-    @step = current_user.step
-    @goals = Goal.get_goals_from_user(current_user)
   end
 
   def step_two_goals
@@ -23,13 +21,13 @@ class EvaluatedController < ApplicationController
   end
 
   def step_three
-    @user = current_user
-    @step = current_user.step
+    #@user = current_user
+    #@step = current_user.step
   end
 
   def step_four
-    @user = current_user
-    @step = current_user.step
+    #@user = current_user
+    #@step = current_user.step
   end
-  
+
 end

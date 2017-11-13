@@ -1,0 +1,19 @@
+<div>
+  <h1>Paso 1</h1>
+  <h3>Selecciona tu jefe</h3>
+  <p align="justify">
+    Chachara
+  </p>
+
+  <div>
+    <% if @bosses.nil? %>
+      <h5>No tienes jefes para seleccionar.</h5>
+    <% else %>
+      <%= form_for @user do |f| %>
+        <%= f.collection_select :boss, @bosses, :id, :name, {:prompt => "Selecciona tu jefe"}, {:class=>'btn btn-full'} %>
+        <%= f.hidden_field :step, :value => 1 %>
+        <%= f.submit "Aceptar", url: evaluated_path, class:"btn" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

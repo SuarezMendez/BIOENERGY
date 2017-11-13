@@ -6,7 +6,7 @@ class EvaluatorController < ApplicationController
   end
 
   def accept
-    current_user.get_employees.each do |e|
+    current_user.get_employees.where(step: 1).each do |e|
       e.update(step: 2)
     end
     redirect_to evaluator_path, notice: 'Cambios guardados correctamente'
@@ -33,5 +33,5 @@ class EvaluatorController < ApplicationController
     def set_user
       @user = User.find(params[:id])
     end
-    
+
 end

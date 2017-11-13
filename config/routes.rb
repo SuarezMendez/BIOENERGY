@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get "index" => "home#index"
 
   resources :sessions
+  resources :goals
   resources :users
 
 end

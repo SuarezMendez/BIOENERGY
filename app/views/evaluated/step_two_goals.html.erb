@@ -1,0 +1,19 @@
+<div>
+  <h1>Paso 2</h1>
+  <h3>Creación de objetivos</h3>
+  <p align="justify">
+    Chachara
+  </p>
+
+  <div>
+    <% if @goals == [] %>
+      <p>Aún no tienes objetivos.</p>
+    <% else %>
+      <% @goals.each do |g| %>
+        <%= g.perspective %>
+      <% end %>
+    <% end %>
+    <%= link_to "Crear", new_goal_path(:g_type => @g_type), class:"btn" %>
+    <%= link_to "Aceptar", evaluated_step_two_path, class:"btn" %>
+  </div>
+</div>
