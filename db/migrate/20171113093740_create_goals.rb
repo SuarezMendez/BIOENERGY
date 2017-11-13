@@ -11,6 +11,8 @@ class CreateGoals < ActiveRecord::Migration[5.1]
       t.integer     :measure
       t.integer     :num_periods
       t.integer     :g_type
+      t.boolean     :approved
+      t.string      :comment
       t.references  :user, foreign_key: true
 
       t.timestamps

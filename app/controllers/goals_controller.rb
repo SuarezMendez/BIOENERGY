@@ -28,8 +28,8 @@ class GoalsController < ApplicationController
 
     def goal_params
       params.require(:goal).permit(:perspective, :description, :generalIndicator,
-         :specificIndicator, :formula, :weight, :measure, :user_id, :g_type,
-         periods_attributes: [:periods, :attributes])
+         :specificIndicator, :formula, :weight, :measure, :user_id, :g_type, :approved,
+         :comment, periods_attributes: [:periods, :attributes])
     end
 
 end

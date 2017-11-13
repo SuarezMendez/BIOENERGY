@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20171113093750) do
     t.integer "measure"
     t.integer "num_periods"
     t.integer "g_type"
+    t.boolean "approved"
+    t.string "comment"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

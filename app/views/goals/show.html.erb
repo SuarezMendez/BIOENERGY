@@ -1,5 +1,17 @@
 <div>
   <%= @goal.perspective %>
   <%= @goal.generalIndicator %>
-  
+
+  <%= form_for @goal do |g| %>
+    <%= g.label "Comentario" %>
+    <%= g.text_field :comment %>
+    <%= g.hidden_field :approved, :value => false %>
+    <%= g.submit "Rechazar" %>
+  <% end %>
+
+  <%= form_for @goal do |g| %>
+    <%= g.hidden_field :approved, :value => true %>
+    <%= g.submit "Aceptar" %>
+  <% end %>
+
 </div>

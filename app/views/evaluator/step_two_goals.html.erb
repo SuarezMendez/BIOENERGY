@@ -8,8 +8,8 @@
   <div>
     <% @goals.each do |g| %>
       <div>
-        <%= g.perspective
-        <%= link_to 
+        <%= g.perspective %>
+        <%= link_to "Ver", goal_path(g) %>
       </div>
     <% end %>
   </div>
