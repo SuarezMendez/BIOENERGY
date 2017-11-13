@@ -1,0 +1,65 @@
+<h1>Users#new</h1>
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <div class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        <strong>Form is invalid</strong>
+        <ul>
+          <% for message in @user.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, class:"form" %>
+  </p>
+
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email, class:"form" %>
+  </p>
+
+  <p>
+    <%= f.label :document %><br />
+    <%= f.number_field :document, class:"form" %>
+  </p>
+
+  <p>
+    <%= f.label :role_id %><br />
+    <%= f.number_field :role_id, class:"form" %>
+  </p>
+
+  <p>
+    <%= f.label :charge_id %><br />
+    <%= f.number_field :charge_id, class:"form" %>
+  </p>
+
+  <p>
+    <%= f.label :departament_id %><br />
+    <%= f.number_field :departament_id, class:"form" %>
+  </p>
+
+  <p>
+    <%= f.label :area_id %><br />
+    <%= f.number_field :area_id, class:"form" %>
+  </p>
+
+  <%= f.hidden_field :step, :value => 0 %>
+
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password, class:"form"  %>
+  </p>
+
+  <p>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, class:"form"  %>
+  </p>
+
+  <%= f.submit "Aceptar" %>
+<% end %>

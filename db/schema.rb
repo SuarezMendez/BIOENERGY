@@ -10,6 +10,79 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20171113093750) do
+
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "charges", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "departaments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.string "perspective"
+    t.string "description"
+    t.string "generalIndicator"
+    t.string "specificIndicator"
+    t.string "formula"
+    t.integer "weight"
+    t.integer "measure"
+    t.integer "num_periods"
+    t.integer "g_type"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_goals_on_user_id"
+  end
+
+  create_table "periods", force: :cascade do |t|
+    t.integer "number"
+    t.date "expiration"
+    t.integer "proposed"
+    t.integer "reached"
+    t.string "compromise"
+    t.string "commentary"
+    t.integer "goal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["goal_id"], name: "index_periods_on_goal_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.integer "document"
+    t.integer "step"
+    t.integer "boss"
+    t.integer "departament_id"
+    t.integer "role_id"
+    t.integer "charge_id"
+    t.integer "area_id"
+    t.string "password_hash"
+    t.string "password_salt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_users_on_area_id"
+    t.index ["charge_id"], name: "index_users_on_charge_id"
+    t.index ["departament_id"], name: "index_users_on_departament_id"
+    t.index ["role_id"], name: "index_users_on_role_id"
+  end
 
 end

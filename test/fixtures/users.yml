@@ -1,0 +1,37 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id             :integer          not null, primary key
+#  name           :string
+#  email          :string
+#  document       :integer
+#  step           :integer
+#  boss           :integer
+#  departament_id :integer
+#  role_id        :integer
+#  charge_id      :integer
+#  area_id        :integer
+#  password_hash  :string
+#  password_salt  :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  document: 1
+  step: 1
+  boss: 1
+  password_hash: MyString
+  password_salt: MyString
+
+two:
+  email: MyString
+  document: 1
+  step: 1
+  boss: 1
+  password_hash: MyString
+  password_salt: MyString

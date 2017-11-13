@@ -1,0 +1,25 @@
+<h1>Sessions#new</h1>
+<%= form_tag sessions_path do %>
+
+   <% flash.each do |name, msg| %>
+    <div >
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    </div>
+  <% end %>
+
+  <div>
+    <div>
+      <p>
+        <%= label_tag "Documento" %><br />
+        <%= text_field_tag :document, params[:document], class:"form" %>
+      </p>
+      <p>
+        <%= label_tag "Contraseña" %><br />
+        <%= password_field_tag :password, nil,class:"form" %>
+      </p>
+    </div>
+    <%= submit_tag "Ingresar", class:"btn", style:"float: right" %>
+  </div>
+
+<% end %>
