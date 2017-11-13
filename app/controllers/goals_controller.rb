@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
 
-  before_action :set_goal, only: [:show]
+  before_action :set_goal, only: [:show, :m_show]
 
   def new
     @goal = Goal.new
@@ -9,6 +9,9 @@ class GoalsController < ApplicationController
   end
 
   def show
+  end
+
+  def m_show
   end
 
   def create

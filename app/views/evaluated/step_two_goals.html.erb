@@ -10,7 +10,10 @@
       <p>Aún no tienes objetivos.</p>
     <% else %>
       <% @goals.each do |g| %>
-        <%= g.perspective %>
+        <div>
+          <%= g.perspective %>
+          <%= link_to "Ver", %>
+        </div>
       <% end %>
       <%= @goals.get_total_weight %>
     <% end %>

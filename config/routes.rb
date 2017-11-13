@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get "evaluated" => "home#evaluated"
   get "index" => "home#index"
 
+
+
   resources :sessions
   resources :goals
   resources :users
