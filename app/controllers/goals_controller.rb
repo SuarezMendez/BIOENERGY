@@ -1,11 +1,14 @@
 class GoalsController < ApplicationController
 
-  #before_action :set_goal, only: []
+  before_action :set_goal, only: [:show]
 
   def new
     @goal = Goal.new
     @goal.periods.build
     @g_type = params[:g_type]
+  end
+
+  def show
   end
 
   def create
@@ -27,8 +30,6 @@ class GoalsController < ApplicationController
       params.require(:goal).permit(:perspective, :description, :generalIndicator,
          :specificIndicator, :formula, :weight, :measure, :user_id, :g_type,
          periods_attributes: [:periods, :attributes])
-
-         #[:hobbies, :attributes]
     end
-    
+
 end
