@@ -6,6 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#perspective
+Perspective.create(name: "Area")
+Perspective.create(name: "Personal")
+Perspective.create(name: "Coorporativo")
+
+#measure
+Measure.create(name: "Porcentaje")
+Measure.create(name: "Días")
+Measure.create(name: "Ventas")
+
 #area
 Area.create(name: "Gerencia")
 Area.create(name: "Sistemas")

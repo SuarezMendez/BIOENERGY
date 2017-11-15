@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: departaments
+# Table name: perspectives
 #
 #  id         :integer          not null, primary key
 #  name       :string
@@ -10,7 +10,7 @@
 
 require 'test_helper'
 
-class DepartamentTest < ActiveSupport::TestCase
+class PerspectiveTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

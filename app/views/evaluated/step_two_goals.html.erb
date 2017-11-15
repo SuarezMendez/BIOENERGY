@@ -11,8 +11,7 @@
     <% else %>
       <% @goals.each do |g| %>
         <div>
-          <%= g.perspective %>
-          <%= link_to "Ver", %>
+          <%= g.description %>
         </div>
       <% end %>
       <%= @goals.get_total_weight %>

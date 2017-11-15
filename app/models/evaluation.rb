@@ -1,15 +1,18 @@
 # == Schema Information
 #
-# Table name: areas
+# Table name: evaluations
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  comment    :string
+#  approved   :boolean
+#  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Area < ApplicationRecord
+class Evaluation < ApplicationRecord
 
-  has_many    :users
+  belongs_to  :user
+  has_many    :goals
 
 end

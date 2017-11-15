@@ -5,7 +5,7 @@ class GoalsController < ApplicationController
   def new
     @goal = Goal.new
     @goal.periods.build
-    @g_type = params[:g_type]
+    @perspective = Perspective.find(params[:g_type])
   end
 
   def show
@@ -18,9 +18,10 @@ class GoalsController < ApplicationController
     @g_type = params[:g_type]
     @goal = Goal.new(goal_params)
     if @goal.save
-      redirect_to evaluated_step_two_goals_path(:g_type => @goal.g_type)
+      redirect_to evaluated_step_two_goals_path(:g_type => @goal.perspective_id)
     else
-      render "new"
+      @errors = @goal.errors
+      redirect_to new_goal_path(:g_type => @goal.perspective_id)
     end
   end
 
@@ -30,9 +31,9 @@ class GoalsController < ApplicationController
     end
 
     def goal_params
-      params.require(:goal).permit(:perspective, :description, :generalIndicator,
-         :specificIndicator, :formula, :weight, :measure, :user_id, :g_type, :approved,
-         :comment, periods_attributes: [:periods, :attributes])
+      params.require(:goal).permit(:description, :indicator, :formula, :weight,
+        :num_periods, :evaluation_id, :perspective_id, :measure_id, :evaluation_id,
+        periods_attributes: [:periods, :attributes])
     end
 
 end
