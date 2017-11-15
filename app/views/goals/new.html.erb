@@ -1,51 +1,6 @@
 <div>
   <h1>Objetivo <%= @perspective.name %></h1>
-  <%= form_for @goal do |g| %>
 
-    <% if @goal.errors.any? %>
-      <div class="error_messages">
-        <div class="alert alert-danger alert-dismissable">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-          <strong>Form is invalid</strong>
-          <ul>
-            <% for message in @goal.errors.full_messages %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    <% end %>
+  <%= render 'form', goal: @goal %>
 
-    <%= g.label "Descripción" %>
-    <%= g.text_field :description, class:"form" %>
-
-    <%= g.label "Indicador" %>
-    <%= g.text_field :indicator, class:"form" %>
-
-    <%= g.label "Formula" %>
-    <%= g.text_field :formula, class:"form" %>
-
-    <%= g.label "Unidad de medidad" %>
-    <%= g.collection_select(:measure_id, Measure.all, :id, :name) %>
-
-    <%= g.label "Peso" %>
-    <%= g.number_field :weight, class:"form" %>
-
-    <%= g.hidden_field :evaluation_id, :value => current_user.evaluation.id %>
-    <%= g.hidden_field :perspective_id, :value => @perspective.id %>
-
-    <%= g.label "Periodos" %>
-    <%= g.select :num_periods, options_for_select([["Mensual", 12], ["Semestral", 6], ["Trimestral", 4], ["Anual", 1]]) %>
-
-    <h3>Metas</h3>
-    <% for i in (1..4) %>
-      <%= g.fields_for :periods do |p| %>
-        <%= p.label "Propuesto" %>
-        <%= p.number_field :proposed, class:"form" %>
-        <%= p.hidden_field :reached, :value => -1 %>
-      <% end %>
-    <% end %>
-
-    <%= submit_tag("Crear objetivo") %>
-  <% end %>
 </div>

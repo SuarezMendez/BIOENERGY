@@ -18,7 +18,8 @@
 class Goal < ApplicationRecord
 
   belongs_to  :evaluation
-  has_many    :periods
+  has_many    :periods, dependent:  :destroy
+
   accepts_nested_attributes_for :periods
 
   validates_presence_of :description, :indicator, :formula, :weight, :num_periods,
