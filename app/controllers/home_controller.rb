@@ -6,11 +6,13 @@ class HomeController < ApplicationController
   end
 
   def evaluated
+    @user = current_user
     @step = current_user.step
   end
 
   def evaluator
+    @user = current_user
     @employees = current_user.get_employees
   end
-  
+
 end
