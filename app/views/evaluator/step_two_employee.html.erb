@@ -6,9 +6,22 @@
   </p>
 
   <div>
-    <%= link_to "Corporativos", evaluator_step_two_goals_path(@user, :g_type => 0) %>
-    <%= link_to "Personales", evaluator_step_two_goals_path(@user, :g_type => 1) %>
-    <!--%= link_to "Corporativos", evaluator_step_two_goals_path(@user) %-->
-    <!--%= link_to "Personales", evaluator_step_two_goals_path(@user) %-->
+    <% @goals.each do |g| %>
+      <h3><%= g.description %></h3>
+      <h3><%= g.weight %>%</h3>
+    <% end %>
+
+    <%= form_for @evaluation do |f| %>
+      <%= f.label "Comentario" %>
+      <%= f.text_area :comment %>
+
+      <%= f.label "Aprobar" %>
+      <%= f.select :approved, options_for_select([["Si", true], ["No", false]]) %>
+
+      <%= f.submit "Aceptar" %>
+    <% end %>
+
+    <!--%= link_to "Corporativos", evaluator_step_two_goals_path(@user, :g_type => 1) %-->
+    <!--%= link_to "Personales", evaluator_step_two_goals_path(@user, :g_type => 2) %-->
   </div>
 </div>

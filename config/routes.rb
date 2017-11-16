@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'evaluations/show'
+
   root :to => "sessions#new"
 
   get "log_out" => "sessions#destroy", :as => "log_out"
@@ -29,6 +31,7 @@ Rails.application.routes.draw do
 
 
   resources :sessions
+  resources :evaluations
   resources :goals
   resources :users
 

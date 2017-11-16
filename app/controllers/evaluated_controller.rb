@@ -19,10 +19,10 @@ class EvaluatedController < ApplicationController
     @g_type = params[:g_type]
     @goals = current_user.get_goals_type(@g_type)
     if @goals.get_total_weight == 100
-      current_user.update(step: 2)
+      current_user.update(step: 3)
       redirect_to evaluated_path
     else
-      redirect_to evaluated_step_two_goals_path(:g_type => @g_type), :flash => { :error => "Tus objetivos deben sumar 100%" } 
+      redirect_to evaluated_step_two_goals_path(:g_type => @g_type), :flash => { :error => "Tus objetivos deben sumar 100%" }
     end
 
   end
