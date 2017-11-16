@@ -1,6 +1,13 @@
 class EvaluationsController < ApplicationController
 
-  before_action :set_evaluation, only: [:update]
+  before_action :set_evaluation, only: [:show, :update]
+
+  def show
+    respond_to do |format|
+      format.html
+      format.pdf { render template: 'evaluations/document', pdf: 'Documento' }
+    end
+  end
 
   def update
     if @evaluation.update(evaluation_params)
