@@ -1,13 +1,13 @@
 <body class="fondo">
   <div class="row mt">
-    
+
     <div class="col-lg-offset-1 col-lg-10 colEvaluacion">
       <h1 class="titulo">Paso 1</h1>
       <h3>Selecciona tu jefe</h3>
       <p align="justify">
         Chachara
       </p>
-    
+
       <div class="row">
         <div class="col-lg-offset-4 col-lg-4">
           <% if @bosses.nil? %>
@@ -15,20 +15,16 @@
               <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
               <h5>No tienes jefes para seleccionar.</h5>
             </div>
-            
+
           <% else %>
             <%= form_for @user, :html => {:class => ''} do |f| %>
               <%= f.collection_select :boss, @bosses, :id, :name, {:prompt => "Selecciona tu jefe"}, {:class=>'form-control'} %>
               <%= f.hidden_field :step, :value => 1 %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-offset-10 col-lg-2">
-          <%= f.submit "Aceptar", url: evaluated_path, class:"btn btn-default" %>
-        </div>
-      </div>
+              <%= f.submit "Aceptar", url: evaluated_path, class:"btn btn-default" %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
+      </div>
     </div>
-  </div>  
+  </div>
 </div>
