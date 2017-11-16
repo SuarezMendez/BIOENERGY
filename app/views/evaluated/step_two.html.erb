@@ -1,12 +1,16 @@
-<div>
-  <h1>Paso 2</h1>
-  <h3>Creación de objetivos</h3>
-  <p align="justify">
-    Chachara
-  </p>
-
-  <div>
-    <%= link_to "Corporativos", evaluated_step_two_goals_path(:g_type => 1) %>
-    <%= link_to "Personales", evaluated_step_two_goals_path(:g_type => 2) %>
+<body class="fondo">
+  <div class="row mt">
+    <div class="col-lg-offset-1 col-lg-10 colEvaluacion">
+      <h1 class="titulo">Paso 2</h1>
+      <h3>Creación de objetivos</h3>
+      <p align="justify">
+        Chachara
+      </p>
+    
+      <div>
+        <%= link_to "Corporativos", evaluated_step_two_goals_path(:g_type => 1), class:"btn btn-default" %>
+        <%= link_to "Personales", evaluated_step_two_goals_path(:g_type => 2), class:"btn btn-default" %>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,47 +1,76 @@
-<%= form_with(model: goal, local: true, class:"myform") do |g| %>
-  <% if goal.errors.any? %>
-    <div class="error_messages">
-      <div class="alert alert-danger alert-dismissable">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-        <strong>Form is invalid</strong>
-        <ul>
-          <% for message in @goal.errors.full_messages %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script>
+      $(document).ready(function(){
+        $('#field').hide();
+        $("#periods").change(function(){
+          var x = document.getElementById("periods").value;
+          var field = $('#field');
+          $('#metas').empty();
+          for(var i=0; i<x; i++){
+            $('#metas').append(field.clone().show());
+          }
+        });
+      });
+    </script>
+  </head>
+  
+  <body>
+    <%= form_with(model: goal, local: true, class:"") do |g| %>
+      <% if goal.errors.any? %>
+        <div class="error_messages">
+          <div class="alert alert-danger alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            <strong>Form is invalid</strong>
+            <ul>
+              <% for message in @goal.errors.full_messages %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    
+      <%= g.label "Descripción" %>
+      <%= g.text_field :description, class:"form-control" %>
+    
+      <%= g.label "Indicador" %>
+      <%= g.text_field :indicator, class:"form-control" %>
+    
+      <%= g.label "Formula" %>
+      <%= g.text_field :formula, class:"form-control" %>
+    
+      <%= g.label "Unidad de medidad" %>
+      <%= g.collection_select(:measure_id, Measure.all, :id, :name, {}, {:class=>"form-control"}) %>
+    
+      <%= g.label "Peso" %>
+      <%= g.number_field :weight, class:"form-control" %>
+    
+      <%= g.hidden_field :evaluation_id, :value => current_user.evaluation.id %>
+      <%= g.hidden_field :perspective_id, :value => @perspective.id %>
+    
+      <%= g.label "Periodos" %>
+      <%= g.select :num_periods, options_for_select([["Mensual", 12], ["Semestral", 6], ["Trimestral", 4], ["Anual", 1]]), {}, { :id=>"periods", :class => 'form-control' } %>
+      
+      <h3>Metas</h3>
+      <div id="field">
+        <%= g.fields_for :periods do |p| %>
+          <%= p.label "Propuesto" %>
+          <%= p.number_field :proposed, class:"form" %>
+          <%= p.hidden_field :reached, :value => -1 %>
+        <% end %>
       </div>
-    </div>
-  <% end %>
-
-  <%= g.label "Descripción" %>
-  <%= g.text_field :description, class:"form" %>
-
-  <%= g.label "Indicador" %>
-  <%= g.text_field :indicator, class:"form" %>
-
-  <%= g.label "Formula" %>
-  <%= g.text_field :formula, class:"form" %>
-
-  <%= g.label "Unidad de medidad" %>
-  <%= g.collection_select(:measure_id, Measure.all, :id, :name) %>
-
-  <%= g.label "Peso" %>
-  <%= g.number_field :weight, class:"form" %>
-
-  <%= g.hidden_field :evaluation_id, :value => current_user.evaluation.id %>
-  <%= g.hidden_field :perspective_id, :value => @perspective.id %>
-
-  <%= g.label "Periodos" %>
-  <%= g.select :num_periods, options_for_select([["Mensual", 12], ["Semestral", 6], ["Trimestral", 4], ["Anual", 1]]) %>
-
-  <h3>Metas</h3>
-  <% for i in (1..4) %>
-    <%= g.fields_for :periods do |p| %>
-      <%= p.label "Propuesto" %>
-      <%= p.number_field :proposed, class:"form" %>
-      <%= p.hidden_field :reached, :value => -1 %>
+      <div id="metas"></div>
+      
+      <br>
+      <div class="row">
+        <div class="col-lg-offset-10 col-lg-2">
+          <%= submit_tag("Crear objetivo", :class=>'btn btn-default') %>
+        </div>
+      </div>
+      
     <% end %>
-  <% end %>
-
-  <%= submit_tag("Crear objetivo") %>
-<% end %>
+  </body>
+</html>
