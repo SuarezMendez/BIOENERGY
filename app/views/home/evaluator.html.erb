@@ -1,8 +1,25 @@
-<div class="container margin-top">
+<body class="fondo">
+  <div class="row mt">
+    <div class="col-lg-offset-1 col-lg-10 colEvaluacion">
+      <h1 class="titulo">Evaluador</h1><br>
 
-    <h4><%= link_to "Paso 1", evaluator_step_one_path, class:"btn" %></h4>
-    <h4><%= link_to "Paso 2", evaluator_step_two_path, class:"btn" %></h4>
-    <h4><%= link_to "Paso 3", evaluator_step_three_path, class:"btn" %></h4>
-    <h4><%= link_to "Paso 4", evaluator_step_four_path, class:"btn" %></h4>
-
-</div>
+      <div style="row">
+        <div class="col-sm-2">
+          <%= link_to "Atrás", index_path, class:"btn btn-default" %>
+        </div>
+        <div class="col-sm-2">
+          <%= link_to "Paso 1", evaluator_step_one_path, class:"btn btn-default" %>
+        </div>
+        <div class="col-sm-2">
+          <%= link_to "Paso 2", evaluator_step_two_path, class:"btn btn-default" %>
+        </div>
+        <div class="col-sm-2">
+          <%= link_to "Paso 3", evaluator_step_three_path, class:"btn btn-default" %>
+        </div>
+        <div class="col-sm-2">
+          <%= link_to "Paso 4", evaluator_step_four_path, class:"btn btn-default" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
