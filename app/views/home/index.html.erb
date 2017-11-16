@@ -1,55 +1,55 @@
+<body class="fondo">
+  <div class="row mt">
+    <div class="col-lg-offset-1 col-lg-10 colEvaluacion">
+      <h1 class="titulo">Home</h1>
+      <br>
+      <p align="justify">
+      
+        Apreciado(a) <%= @user.name %><br><br>
+        
+        Bienvenido(a) al Sistema de Gestión del Desempeño de Bioenergy<br><br>
+        
+        El Sistema de Gestión del Desempeño tiene cinco fases :<br><br>
+        
+          <b>1.</b> Alineación a objetivos Organizacionales, y al modelo de competencias.<br>
+          <b>2.</b> Fijación de Objetivos y evaluación de competencias.<br>
+          <b>3.</b> Seguimiento de Objetivos y al Plan de desarrollo Individual de Competencias.<br>
+          <b>4.</b> Evaluación Final de Objetivos y del Plan de desarrollo Individual de Competencias.<br>
+          <b>5.</b> Monitoreo de resultados , revisión de  mapas  de desempeño  individual y de la organización y aplicación de politicas de reconocimiento.<br>
+        
+        <br>
+        
+        La presente herramienta, le permitirá desarrollar el ciclo referente a la evaluación de desempeño de Objetivos del año 2017, en formato separado le será enviado lo referente al proceso de evaluación de competencias para el año 2017.<br><br>
+        
+        El proceso se desarrollará de una manera secuencial, con el fin de que usted vaya revisando la evolución de su gestión a lo largo del tiempo que dure el ciclo de gestión de desempeño, que para el 2017, iniciará en Agosto de 2017 con su primera fase y segunda fase, continuará en Septiembre con su tercera fase y finalizará en Enero de 2018 con su cuarta fase.<br><br>
+        
+        Por favor tenga en cuenta las siguientes recomendaciones:<br><br>
+        
+          <b>a.</b> Es muy importante que diligencie toda la información requerida a lo largo del proceso y que la verifique con su jefe inmediato.<br>
+        
+          <b>b.</b> No olvide tener en su PC, la información de sustento para el diligenciamiento de los objetivos, metas, indicadores y pesos porcentuales de importancia sobre cada objetivo, que  usted ha definido junto con su jefe inmediato. En caso de requerirse, se le solicitará dichos soportes, en caso que surjan inquietudes sobre la información consignada.<br>
+        
+          <b>c.</b> El formato contiene la formulación que les permitirá a usted y su jefe inmediato, conocer los porcentajes de cumplimiento de los objetivos y obtener la información referente al plan de mejoramiento individual en caso de que al corte de seguimiento no se vaya cumpliendo con lo establecido en la fijación de objetivos.<br>
+        
+          <b>d.</b> El porcentaje de cumplimiento del Tablero Balanceado de Gestión le será informado por al área de Planeación y Gestión.<br>
+        
+          <b>e.</b> En caso de requerir ayuda o soporte, por favor contáctese con el area de Talento Humano al corrreo: Catalina.moreno@bioenergy.com.co<br>
+        
+          <b>f.</b> Los siguientes son los pasos que deberá seguir para dar cumplimiento al ciclo de gestión de desempeño, relacionado con el frente de Objetivos.<br>
+      </p>
 
-<div class="row">
-    <div class="col-sm-offset-4 col-sm-4">
-        <h1 class="txtColor">Home#index</h1>
-        <p align="justify">
-
-          Apreciado(a) <%= @user.name %><br><br>
-
-          Bienvenido(a) al Sistema de Gestión del Desempeño de Bioenergy<br><br>
-
-          El Sistema de Gestión del Desempeño tiene cinco fases :<br><br>
-
-            <b>1.</b> Alineación a objetivos Organizacionales, y al modelo de competencias.<br>
-            <b>2.</b> Fijación de Objetivos y evaluación de competencias.<br>
-            <b>3.</b> Seguimiento de Objetivos y al Plan de desarrollo Individual de Competencias.<br>
-            <b>4.</b> Evaluación Final de Objetivos y del Plan de desarrollo Individual de Competencias.<br>
-            <b>5.</b> Monitoreo de resultados , revisión de  mapas  de desempeño  individual y de la organización y aplicación de politicas de reconocimiento.<br>
-
-          <br>
-
-          La presente herramienta, le permitirá desarrollar el ciclo referente a la evaluación de desempeño de Objetivos del año 2017, en formato separado le será enviado lo referente al proceso de evaluación de competencias para el año 2017.<br><br>
-
-          El proceso se desarrollará de una manera secuencial, con el fin de que usted vaya revisando la evolución de su gestión a lo largo del tiempo que dure el ciclo de gestión de desempeño, que para el 2017, iniciará en Agosto de 2017 con su primera fase y segunda fase, continuará en Septiembre con su tercera fase y finalizará en Enero de 2018 con su cuarta fase.<br><br>
-
-          Por favor tenga en cuenta las siguientes recomendaciones:<br><br>
-
-            <b>a.</b> Es muy importante que diligencie toda la información requerida a lo largo del proceso y que la verifique con su jefe inmediato.<br>
-
-            <b>b.</b> No olvide tener en su PC, la información de sustento para el diligenciamiento de los objetivos, metas, indicadores y pesos porcentuales de importancia sobre cada objetivo, que  usted ha definido junto con su jefe inmediato. En caso de requerirse, se le solicitará dichos soportes, en caso que surjan inquietudes sobre la información consignada.<br>
-
-            <b>c.</b> El formato contiene la formulación que les permitirá a usted y su jefe inmediato, conocer los porcentajes de cumplimiento de los objetivos y obtener la información referente al plan de mejoramiento individual en caso de que al corte de seguimiento no se vaya cumpliendo con lo establecido en la fijación de objetivos.<br>
-
-            <b>d.</b> El porcentaje de cumplimiento del Tablero Balanceado de Gestión le será informado por al área de Planeación y Gestión.<br>
-
-            <b>e.</b> En caso de requerir ayuda o soporte, por favor contáctese con el area de Talento Humano al corrreo: Catalina.moreno@bioenergy.com.co<br>
-
-            <b>f.</b> Los siguientes son los pasos que deberá seguir para dar cumplimiento al ciclo de gestión de desempeño, relacionado con el frente de Objetivos.<br>
-
-        </p>
+      <div>
+        <% if @role.id == 1 %>
+          <h4><%= link_to "Ser evaluador", evaluator_path, class:"btn btn-default" %></h4>
+        <% elsif @role.id == 2 %>
+          <h4><%= link_to "Ser evaluado", evaluated_path, class:"btn btn-default" %></h4>
+        <% elsif @role.id == 3 %>
+          <h4><%= link_to "Ser evaluador", evaluator_path, class:"btn btn-default" %></h4>
+          <h4><%= link_to "Ser evaluado", evaluated_path, class:"btn btn-default" %></h4>
+        <% else %>
+          <p>Error!</p>
+        <% end %>
+      </div>
     </div>
-
-    <div>
-      <% if @role.id == 1 %>
-        <h4><%= link_to "Ser evaluador", evaluator_path, class:"btn" %></h4>
-      <% elsif @role.id == 2 %>
-        <h4><%= link_to "Ser evaluado", evaluated_path, class:"btn" %></h4>
-      <% elsif @role.id == 3 %>
-        <h4><%= link_to "Ser evaluador", evaluator_path, class:"btn" %></h4>
-        <h4><%= link_to "Ser evaluado", evaluated_path, class:"btn" %></h4>
-      <% else %>
-        <p>Error!</p>
-      <% end %>
-    </div>
-
-</div>
+  </div>
+</body>

@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
+  
   <head>
     <title>Bioenergy</title>
+    <meta charset="utf-8">
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  
   <body>
+    <nav id="navbar-menu" class="navbar navbar-default navbar-static-top navbar-fixed-top">
+      <div class="navbar-header">
+        <%= link_to image_tag("LogoEntidad.png", alt: "BIOENERGY"), nil, class:"navbar-brand" %>
+      </div>
+  
+      <ul class="nav navbar-nav navbar-right">
+          <% if !current_user.nil? %>
+            <li><%= link_to current_user.name, nil%></li>
+            <li><%= link_to raw("<i class=\"glyphicon glyphicon-log-out\"></i>"), nil%></li>
+          <% end %>
+      </ul>
+    </nav>
+
     <%= yield %>
+    
   </body>
 </html>

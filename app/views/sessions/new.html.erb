@@ -1,25 +1,41 @@
-<h1>Sessions#new</h1>
-<%= form_tag sessions_path do %>
-
-   <% flash.each do |name, msg| %>
-    <div >
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<div class="row mt-100">
+  <div class="col-sm-offset-4 col-sm-4">
+    <div class="panel panel-default">
+      
+      <div class="panel-heading">
+        <h1 class="txtDarkGreen centrar">Inciar Sesión</h1>
+      </div>
+      
+      <%= form_tag sessions_path do %>
+      
+        <div class="panel-body">
+          <% flash.each do |name, msg| %>
+            <div class="alert alert-danger alert-dismissable">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+              <%= content_tag :div, msg, :id => "flash_#{name}" %>
+            </div>
+          <% end %>
+          <div>
+            
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <%= text_field_tag :document, params[:document], class:"form-control", placeholder: "Documento" %>
+            </div>
+            <br>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+              <%= password_field_tag :password, nil, class:"form-control", placeholder: "Contraseña" %>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="panel-footer container-fluid">
+          <%= submit_tag "Ingresar", class:"btn btn-default full-width", style:"float: right" %>
+        </div>
+        
+      <% end %>
+      
     </div>
-  <% end %>
-
-  <div>
-    <div>
-      <p>
-        <%= label_tag "Documento" %><br />
-        <%= text_field_tag :document, params[:document], class:"form" %>
-      </p>
-      <p>
-        <%= label_tag "Contraseña" %><br />
-        <%= password_field_tag :password, nil,class:"form" %>
-      </p>
-    </div>
-    <%= submit_tag "Ingresar", class:"btn", style:"float: right" %>
   </div>
-
-<% end %>
+</div>

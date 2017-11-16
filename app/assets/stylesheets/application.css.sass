@@ -16,5 +16,195 @@
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
-.txtColor
- color: rgb(92, 149, 74)
+/* ==================================================
+ Colores
+ ================================================== */
+$dark-green: #00481a
+$green: #548f41
+$yellow: #fef000
+$red : #ff0000
+$white: #ffffff
+$gray: #2b3238
+$black: #000200
+
+/* ==================================================
+ General
+ ================================================== */
+
+html, body
+    overflow-x: hidden
+
+*, *:before, *:after 
+    -moz-box-sizing: border-box
+    -webkit-box-sizing: border-box
+    -ms-box-sizing: border-box
+    box-sizing: border-box
+    
+.mt
+    margin: 130px 0px 50px
+.mt-100
+    margin-top: 150px
+
+.full-width
+    width: 100%
+
+div, h1, h2, h3, h4, h5, h6, p, .btn 
+    font-family: "Open Sans", Helvetica, Arial, sans-serif
+
+.titulo
+    color: darken($dark-green, 2.5%)
+    text-align: center
+    
+.txtRed
+    color: darken($red, 2.5%)
+    
+.centrar
+    text-align: center
+    
+    
+/* ==================================================
+  Panel
+  ================================================== */
+.panel, .panel-default
+    border: 1px solid darken($dark-green, 2.5%)
+    border-radius: 0px
+    background: darken($white, 2.5%)
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2),
+    
+.panel-heading
+    border: 0px
+    border-radius: 0px
+    background-color: darken($white, 2.5%) !important
+
+.panel-footer
+    border: 0
+    border-radius: 0px
+    background-color: darken($white, 2.5%)
+
+/* ==================================================
+  Botones
+  ================================================== */
+.btn 
+    margin: 5px
+    border-radius: 0px !important
+    padding: 10px 30px
+    font-size: 15px !important
+
+.btn-default 
+    background-color: darken($dark-green, 2.5%)
+    font-weight: bold
+    color: darken($white, 2.5%)
+
+.btn-default:hover, .btn-default:focus 
+    border: 1px solid darken($dark-green, 2.5%)
+    background-color: darken($white, 2.5%)
+    color: darken($dark-green, 2.5%)
+
+.btn-ghost 
+    border: 1px solid #1c5664
+    background-color: transparent
+    padding: 2px 4px
+    color: #1c5664
+
+.btn-ghost:hover, .btn-ghost:focus 
+    background-color: #1c5664
+    color: #fff
+
+/* boton para fondos Oscuros*/
+.btn-inverse 
+    border: 1px solid #fff
+    background-color: transparent
+    padding: 2px 4px
+    height: 30px
+    color: #fff
+.btn-inverse:hover, .btn-inverse:focus 
+    background-color: #fff
+    color: #1c5664
+/* BTN-FACEBOOKJ*/
+.btn-facebook
+    background-color: #4267b2 !important
+    border: 2px solid #fff !important
+
+.btn-facebook:hover
+    background-color: #fff !important
+    border: 2px solid #4267b2 !important
+    color: #4267b2 !important
+
+/* ==================================================
+  forms
+  ================================================== */
+.input-group
+    border-radius: 0px
+.form-control, .input-group-addon
+    border-radius: 0px
+
+/* ==================================================
+  navbar
+  ================================================== */
+/* navbar */
+.navbar-default 
+    background-color: darken($white, 2.5%)
+    border: 0px
+    padding: 8px 48px
+
+.navbar-brand 
+    padding: 0px
+
+.navbar-brand>img 
+    height: 100%
+    padding: 0px
+    width: auto
+
+.navbar-default .navbar-collapse, .navbar-default .collapse 
+    margin: 0
+    padding: 0
+    line-height: 1em
+    width: inherit
+    overflow-x: hidden
+
+
+/* Link */
+.navbar-default .navbar-nav li>a
+    width: auto
+    background-color: darken($white, 2.5%)
+    color: darken($green, 2.5%)
+    font-size: 20px
+
+.navbar-default .navbar-nav li>a:hover
+.navbar-default .navbar-nav li>a:focus 
+    color: darken($yellow, 2.5%)
+
+.navbar-default .navbar-nav > .acimg-fulltive > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus 
+    color: darken($yellow, 2.5%)
+    background-color: #fff
+
+/* ==================================================
+  parallax
+  ================================================== */
+.parallax 
+    background-image: url("img_parallax.jpg")
+    opacity: 0.7
+    height: 300px
+    background-attachment: fixed
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    
+    
+/* ==================================================
+  otros
+  ================================================== */
+.fondo
+    background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("body.jpg")
+    background-repeat: no-repeat
+    background-attachment: fixed
+    position: relative
+    z-index: 1
+    
+.colEvaluacion
+    background: white
+    padding: 20px
+    
+

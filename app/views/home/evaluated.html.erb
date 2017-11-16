@@ -1,51 +1,52 @@
-<div>
-  <p align="justify">
-    1. La Evaluación de desempeño, debe ser realizada de forma individual, por todos los trabajadores contratados directamente por Bioenergy S.A.S y Bioenergy Zona Franca S.A.S.<br><br>
-
-    2. Si un trabajador es vinculado 3 meses antes de finalizar el periodo evaluado, no será incluido en la evaluación de dicho periodo.<br><br>
-
-    3. Las personas que sean contratadas para trabajos específicos con duración inferior o igual a 6 meses no serán incluidas en el proceso de evaluación de desempeño.<br><br>
-
-    4. La Evaluación de Desempeño del año 2017, tendrá los siguientes componentes:<br><br>
-
-    a. Objetivo Corporativo de Bioenergy (TBG CORPORATIVO):  Corresponderá al resultado de los objetivos asignados a Bioenergy por la Junta directiva.<br>
-    b. Objetivos de área: Hacen referencia a los objetivos direccionados por el Gerente, director ó jefe de las diferentes áreas de la empresa, a partir de lo definido en el Tablero Balanceado de Gestión.<br>
-    c. Objetivos Individuales: Corresponderá a las acciones realizadas por el trabajador en los frentes de gestión sobre los procesos o subprocesos en los cuales participa.<br>
-    d. Gestión plan Individual de desarrollo (Evaluación de Competencias): Corresponderá a las acciones que el trabajador deberá realizar para evaluar y realizar PDI (plan de desarrollo individual) a las competencias que le correspondan a su cargo.<br><br>
-
-    5. El proceso de Gestión de Plan Individual de Desarrollo (evaluación de Competencias) será direccionado y monitoreado a todos los trabajadores por parte del área de gestión humana.<br><br>
-
-    6. Para definir los objetivos individuales, a cada trabajador se le entregará los objetivos del área a la cual pertenece con el fin de que los revise y pueda definir su propuesta de contribución en función de dichos objetivos informados.<br><br>
-
-    7.1 Los jefes de área podrán identificar y asignar los objetivos que se alineen al Tablero Balanceado de Gestión, se recomienda no asignar más de 5 objetivos.<br>
-
-    7.2 El número de objetivos individuales a fijar a un trabajador será de mínimo 2 y máximo 3 objetivos, los cuales deberán tener un peso porcentual que sume el 100% entre ellos.<br><br>
-
-    8. De acuerdo con sus responsabilidades e interacción, dos ó más trabajadores podrán compartir el mismo objetivo.<br><br>
-
-    9. La definición de los objetivos individuales, así como su correspondiente evaluación al corte de Diciembre 31 de 2017, Debe ser validada por el trabajador con su jefe inmediato.<br><br>
-
-    10. Para el año 2017, los objetivos individuales no tendrán modificación, una vez hayan sido definidos y aprobados entre el trabajador y su jefe inmediato, excepto si por razones de fuerza mayor se haga necesario revisarlos para lo cual deberán ser remitidos al correo: Alexander.forero@procesosyoperaciones.com<br><br>
-
-    11. En caso de que un trabajador haya sido trasladado de area ó ascendido, dentro de la misma área,  los objetivos  que se evaluarán, corresponderán al cargo en donde el trabajador haya estado la mayor parte del tiempo.<br><br>
-  </p>
-  <div style="row">
-      <div class="col-xs-offset-8 col-xs-4">
-        <% if @step == 0 || @step == 1 %>
-          <h4><%= link_to "Paso 1", evaluated_step_one_path, class:"btn" %></h4>
-          <h4><%= link_to "Atrás", index_path, class:"btn" %></h4>
-        <% elsif @step == 2 || @step == 3 %>
-          <h4><%= link_to "Paso 2", evaluated_step_two_path, class:"btn" %></h4>
-          <h4><%= link_to "Atrás", index_path, class:"btn" %></h4>
-        <% elsif @step == 4 || @step == 5 %>
-          <h4><%= link_to "Paso 3", evaluated_step_three_path, class:"btn" %></h4>
-          <h4><%= link_to "Atrás", index_path, class:"btn" %></h4>
-        <% elsif @step == 6 || @step == 7 %>
-          <h4><%= link_to "Paso 4", evaluated_step_four_path, class:"btn" %></h4>
-          <h4><%= link_to "Atrás", index_path, class:"btn" %></h4>
-        <% else %>
-          <h4><%= link_to "Atrás", index_path, class:"btn" %></h4>
-        <% end %>
+<body class="fondo">
+  <div class="row mt">
+    <div class="col-lg-offset-1 col-lg-10 colEvaluacion">
+      <p align="justify">
+        1. La Evaluación de desempeño, debe ser realizada de forma individual, por todos los trabajadores contratados directamente por Bioenergy S.A.S y Bioenergy Zona Franca S.A.S.<br><br>
+    
+        2. Si un trabajador es vinculado 3 meses antes de finalizar el periodo evaluado, no será incluido en la evaluación de dicho periodo.<br><br>
+    
+        3. Las personas que sean contratadas para trabajos específicos con duración inferior o igual a 6 meses no serán incluidas en el proceso de evaluación de desempeño.<br><br>
+    
+        4. La Evaluación de Desempeño del año 2017, tendrá los siguientes componentes:<br><br>
+    
+        a. Objetivo Corporativo de Bioenergy (TBG CORPORATIVO):  Corresponderá al resultado de los objetivos asignados a Bioenergy por la Junta directiva.<br>
+        b. Objetivos de área: Hacen referencia a los objetivos direccionados por el Gerente, director ó jefe de las diferentes áreas de la empresa, a partir de lo definido en el Tablero Balanceado de Gestión.<br>
+        c. Objetivos Individuales: Corresponderá a las acciones realizadas por el trabajador en los frentes de gestión sobre los procesos o subprocesos en los cuales participa.<br>
+        d. Gestión plan Individual de desarrollo (Evaluación de Competencias): Corresponderá a las acciones que el trabajador deberá realizar para evaluar y realizar PDI (plan de desarrollo individual) a las competencias que le correspondan a su cargo.<br><br>
+    
+        5. El proceso de Gestión de Plan Individual de Desarrollo (evaluación de Competencias) será direccionado y monitoreado a todos los trabajadores por parte del área de gestión humana.<br><br>
+    
+        6. Para definir los objetivos individuales, a cada trabajador se le entregará los objetivos del área a la cual pertenece con el fin de que los revise y pueda definir su propuesta de contribución en función de dichos objetivos informados.<br><br>
+    
+        7.1 Los jefes de área podrán identificar y asignar los objetivos que se alineen al Tablero Balanceado de Gestión, se recomienda no asignar más de 5 objetivos.<br>
+    
+        7.2 El número de objetivos individuales a fijar a un trabajador será de mínimo 2 y máximo 3 objetivos, los cuales deberán tener un peso porcentual que sume el 100% entre ellos.<br><br>
+    
+        8. De acuerdo con sus responsabilidades e interacción, dos ó más trabajadores podrán compartir el mismo objetivo.<br><br>
+    
+        9. La definición de los objetivos individuales, así como su correspondiente evaluación al corte de Diciembre 31 de 2017, Debe ser validada por el trabajador con su jefe inmediato.<br><br>
+    
+        10. Para el año 2017, los objetivos individuales no tendrán modificación, una vez hayan sido definidos y aprobados entre el trabajador y su jefe inmediato, excepto si por razones de fuerza mayor se haga necesario revisarlos para lo cual deberán ser remitidos al correo: Alexander.forero@procesosyoperaciones.com<br><br>
+    
+        11. En caso de que un trabajador haya sido trasladado de area ó ascendido, dentro de la misma área,  los objetivos  que se evaluarán, corresponderán al cargo en donde el trabajador haya estado la mayor parte del tiempo.<br><br>
+      </p>
+      <div style="row">
+        <div class="col-sm-2">
+           <%= link_to "Atrás", index_path, class:"btn btn-default" %>
+        </div>
+        <div class="col-sm-offset-8 col-sm-2">
+          <% if @step == 0 || @step == 1 %>
+            <h4><%= link_to "Paso 1", evaluated_step_one_path, class:"btn btn-default" %></h4>
+          <% elsif @step == 2 || @step == 3 %>
+            <h4><%= link_to "Paso 2", evaluated_step_two_path, class:"btn btn-default" %></h4>
+          <% elsif @step == 4 || @step == 5 %>
+            <h4><%= link_to "Paso 3", evaluated_step_three_path, class:"btn btn-default" %></h4>
+          <% elsif @step == 6 || @step == 7 %>
+            <h4><%= link_to "Paso 4", evaluated_step_four_path, class:"btn btn-default" %></h4>
+          <% end %>
+        </div>
       </div>
+    </div>
   </div>
-</div>
+</body>
