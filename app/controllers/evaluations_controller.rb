@@ -3,6 +3,7 @@ class EvaluationsController < ApplicationController
   before_action :set_evaluation, only: [:show, :update]
 
   def show
+    @user = @evaluation.user
     respond_to do |format|
       format.html
       format.pdf { render template: 'evaluations/document', pdf: 'Documento' }
