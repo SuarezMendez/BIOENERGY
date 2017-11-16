@@ -21,6 +21,8 @@ class EvaluatorController < ApplicationController
   end
 
   def step_two_employee
+    @goals = @user.evaluation.goals
+    @evaluation = @user.evaluation
   end
 
   def step_two_goals

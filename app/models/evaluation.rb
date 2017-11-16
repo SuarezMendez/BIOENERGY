@@ -15,4 +15,12 @@ class Evaluation < ApplicationRecord
   belongs_to  :user
   has_many    :goals, dependent:  :destroy
 
+  before_save :change_step
+
+  accepts_nested_attributes_for :goals
+
+  def change_step
+    self.user.update(step: 4)
+  end
+
 end
