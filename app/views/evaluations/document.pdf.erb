@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <h1>Formulario de fijación de objetivos</h1>
+    <h3>Nombre: <%= @user.name %></h3>
+    <h3>Documento: <%= @user.document %></h3>
+    <h3>Cargo: <%= @user.charge.name %></h3>
+
+    <% Perspective.all.each do |p| %>
+      <div>
+        <h4><%= p.name %></h4>
+        <% @user.get_goals_type(p.id).each do |g| %>
+          <div>
+            <%= g.description %>
+            <%= g.indicator %>
+            <%= g.weight %>
+          </div>
+        <% end %>
+        <h4>Total: <%= @user.get_goals_type(p.id).get_total_weight %></h4>
+      </div>
+    <% end %>
+    <div>
+      <h2>Comentarios</h2>
+      <p><%= @evaluation.comment %></p>
+    </div>
+  </body>
+</html>
