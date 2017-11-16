@@ -11,8 +11,9 @@
     <% else %>
       <% @goals.each do |g| %>
         <div>
-          <%= g.perspective %>
-          <%= link_to "Ver", %>
+          <%= g.description %>
+          <%= link_to 'Editar', edit_goal_path(g, :g_type => g.perspective_id), class:"btn btn-ghost" %>
+          <%= link_to 'Eliminar', g, method: :delete, data: { confirm: '¿Estás seguro?'}, class:"btn btn-ghost" %>
         </div>
       <% end %>
       <%= @goals.get_total_weight %>

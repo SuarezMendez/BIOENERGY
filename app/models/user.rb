@@ -32,7 +32,7 @@ class User < ApplicationRecord
   belongs_to  :role
   belongs_to  :charge
   belongs_to  :area
-  has_many    :goals
+  has_one     :evaluation
 
   def get_bosses
     User.where(departament: self.departament)
@@ -40,6 +40,14 @@ class User < ApplicationRecord
 
   def get_employees
     User.where(boss: self.id)
+  end
+
+  def get_employees_step(step)
+    User.where(boss: self.id, step: step)
+  end
+
+  def get_goals_type(type)
+    self.evaluation.goals.where(perspective_id: type)
   end
 
   def self.authenticate(document, password)
@@ -57,5 +65,5 @@ class User < ApplicationRecord
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
-  
+
 end

@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: evaluations
+#
+#  id         :integer          not null, primary key
+#  comment    :string
+#  approved   :boolean
+#  user_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comment: MyString
+  approved: false
+
+two:
+  comment: MyString
+  approved: false

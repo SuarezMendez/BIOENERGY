@@ -1,17 +1,12 @@
 # == Schema Information
 #
-# Table name: departaments
+# Table name: perspectives
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  name       :string           0->Area 1->Personal 2->Coorporativo
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-require 'test_helper'
-
-class DepartamentTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class Perspective < ApplicationRecord
 end

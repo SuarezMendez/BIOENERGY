@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171113093750) do
+ActiveRecord::Schema.define(version: 20171115173747) do
 
   create_table "areas", force: :cascade do |t|
     t.string "name"
@@ -30,22 +30,35 @@ ActiveRecord::Schema.define(version: 20171113093750) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "goals", force: :cascade do |t|
-    t.string "perspective"
-    t.string "description"
-    t.string "generalIndicator"
-    t.string "specificIndicator"
-    t.string "formula"
-    t.integer "weight"
-    t.integer "measure"
-    t.integer "num_periods"
-    t.integer "g_type"
-    t.boolean "approved"
+  create_table "evaluations", force: :cascade do |t|
     t.string "comment"
+    t.boolean "approved"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_goals_on_user_id"
+    t.index ["user_id"], name: "index_evaluations_on_user_id"
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.string "description"
+    t.string "indicator"
+    t.string "formula"
+    t.integer "weight"
+    t.integer "num_periods"
+    t.integer "evaluation_id"
+    t.integer "perspective_id"
+    t.integer "measure_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["evaluation_id"], name: "index_goals_on_evaluation_id"
+    t.index ["measure_id"], name: "index_goals_on_measure_id"
+    t.index ["perspective_id"], name: "index_goals_on_perspective_id"
+  end
+
+  create_table "measures", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "periods", force: :cascade do |t|
@@ -59,6 +72,12 @@ ActiveRecord::Schema.define(version: 20171113093750) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["goal_id"], name: "index_periods_on_goal_id"
+  end
+
+  create_table "perspectives", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "roles", force: :cascade do |t|
