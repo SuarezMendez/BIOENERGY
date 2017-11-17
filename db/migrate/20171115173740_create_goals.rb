@@ -3,7 +3,7 @@ class CreateGoals < ActiveRecord::Migration[5.1]
     create_table :goals do |t|
 
       t.string      :description
-      t.string      :indicator
+      t.integer     :indicator
       t.string      :formula
       t.integer     :weight
       t.integer     :num_periods

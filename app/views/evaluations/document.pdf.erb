@@ -2,29 +2,62 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
   </head>
   <body>
-    <h1>Formulario de fijación de objetivos</h1>
-    <h3>Nombre: <%= @user.name %></h3>
-    <h3>Documento: <%= @user.document %></h3>
-    <h3>Cargo: <%= @user.charge.name %></h3>
 
-    <% Perspective.all.each do |p| %>
-      <div>
-        <h4><%= p.name %></h4>
-        <% @user.get_goals_type(p.id).each do |g| %>
-          <div>
-            <%= g.description %>
-            <%= g.indicator %>
-            <%= g.weight %>
-          </div>
+<div class="row mt">
+  <div class="col-lg-offset-1 col-lg-10 colEvaluacion">
+    <h1 class="titulo">Objetivos</h1><br>
+    <h5><b>Nombre:</b> <%= @user.name %></h5>
+    <h5><b>Documento:</b> <%= @user.document %></h5>
+    <h5><b>Cargo:</b> <%= @user.charge.name %></h5>
+    <table class="table">
+      <thead>
+        <tr class="success">
+          <th>Tipo de Objetivo</th>
+          <th>Objetivo</th>
+          <th>Fórmula</th>
+          <th>Unidad de Medida</th>
+          <th>Tipo de Indicador</th>
+          <th>Peso</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Perspective.all.each do |p| %>
+          <% @user.get_goals_type(p.id).each do |g| %>
+            <tr>
+              <td><%= p.name %></td>
+              <td><%= g.description %></td>
+              <td><%= g.formula %></td>
+              <td><%= Measure.find(g.measure_id).name %></td>
+              <% if g.indicator == 0 %>
+                <td>Ascendente</td>
+              <% else %>
+                <td>Descendente</td>
+              <% end %>
+              <td><%= g.weight %>%</td>
+            </tr>
+          <% end %>
+          <tr class="success">
+            <td><b>Total <%= p.name %></b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><b><%= @user.get_goals_type(p.id).get_total_weight %>%</b></td>
+          </tr>
         <% end %>
-        <h4>Total: <%= @user.get_goals_type(p.id).get_total_weight %></h4>
-      </div>
-    <% end %>
+      </tbody>
+    </table>
+
     <div>
-      <h2>Comentarios</h2>
-      <p><%= @evaluation.comment %></p>
+      <h3>Comentarios</h3>
+      <p align="justify">
+        <%= @evaluation.comment %>
+      </p>
     </div>
-  </body>
+  </div>
+</div>
+  </doby>
 </html>

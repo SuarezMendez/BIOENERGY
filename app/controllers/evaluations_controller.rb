@@ -6,7 +6,11 @@ class EvaluationsController < ApplicationController
     @user = @evaluation.user
     respond_to do |format|
       format.html
-      format.pdf { render template: 'evaluations/document', pdf: 'Documento' }
+      format.pdf do
+        render template: 'evaluations/document',
+        pdf: 'Documento',
+        orientation: 'Landscape'
+      end
     end
   end
 

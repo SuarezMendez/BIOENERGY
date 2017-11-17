@@ -20,7 +20,11 @@ class Evaluation < ApplicationRecord
   accepts_nested_attributes_for :goals
 
   def change_step
-    self.user.update(step: 4)
+    if self.approved == true
+      self.user.update(step: 4)
+    else
+      self.user.update(step: 3)
+    end
   end
 
 end

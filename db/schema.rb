@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20171115173747) do
 
   create_table "goals", force: :cascade do |t|
     t.string "description"
-    t.string "indicator"
+    t.integer "indicator"
     t.string "formula"
     t.integer "weight"
     t.integer "num_periods"

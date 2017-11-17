@@ -4,7 +4,7 @@
 #
 #  id             :integer          not null, primary key
 #  description    :string
-#  indicator      :string
+#  indicator      :integer
 #  formula        :string
 #  weight         :integer
 #  num_periods    :integer

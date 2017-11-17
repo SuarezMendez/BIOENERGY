@@ -1,2 +1,56 @@
-<h1>Evaluations#show</h1>
-<p>Find me in app/views/evaluations/show.html.erb</p>
+<body class="fondo">
+  <div class="row mt">
+    <div class="col-lg-offset-1 col-lg-10 colEvaluacion">
+      <h1 class="titulo">Objetivos</h1><br>
+      <h5><b>Nombre:</b> <%= @user.name %></h5>
+      <h5><b>Documento:</b> <%= @user.document %></h5>
+      <h5><b>Cargo:</b> <%= @user.charge.name %></h5>
+      <table class="table">
+        <thead>
+          <tr class="success">
+            <th>Tipo de Objetivo</th>
+            <th>Objetivo</th>
+            <th>Indicador</th>
+            <th>Unidad de Medida</th>
+            <th>Tipo de Indicador</th>
+            <th>Peso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% Perspective.all.each do |p| %>
+            <% @user.get_goals_type(p.id).each do |g| %>
+              <tr>
+                <td><%= p.name %></td>
+                <td><%= g.description %></td>
+                <% if g.indicator == 0 %>
+                  <td>Ascendente</td>
+                <% else %>
+                  <td>Descendente</td>
+                <% end %>
+                <td><%= Measure.find(g.measure_id).name %></td>
+                <td><%= g.formula %></td>
+                <td><%= g.weight %>%</td>
+              </tr>
+            <% end %>
+            <tr class="success">
+              <td><b>Total <%= p.name %></b></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><%= @user.get_goals_type(p.id).get_total_weight %>%</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <div>
+        <h3>Comentarios</h3>
+        <p align="justify">
+          <%= @evaluation.comment %>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</body>

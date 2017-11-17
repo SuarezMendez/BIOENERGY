@@ -16,7 +16,7 @@
       });
     </script>
   </head>
-  
+
   <body>
     <%= form_with(model: goal, local: true, class:"") do |g| %>
       <% if goal.errors.any? %>
@@ -32,28 +32,28 @@
           </div>
         </div>
       <% end %>
-    
+
       <%= g.label "Descripción" %>
       <%= g.text_field :description, class:"form-control" %>
-    
+
       <%= g.label "Indicador" %>
-      <%= g.text_field :indicator, class:"form-control" %>
-    
+      <%= g.select :indicator, options_for_select([["Ascendente", 0], ["Descendente", 1]]), {}, {:class => 'form-control' } %>
+
       <%= g.label "Formula" %>
       <%= g.text_field :formula, class:"form-control" %>
-    
-      <%= g.label "Unidad de medidad" %>
+
+      <%= g.label "Unidad de medida" %>
       <%= g.collection_select(:measure_id, Measure.all, :id, :name, {}, {:class=>"form-control"}) %>
-    
+
       <%= g.label "Peso" %>
       <%= g.number_field :weight, class:"form-control" %>
-    
+
       <%= g.hidden_field :evaluation_id, :value => current_user.evaluation.id %>
       <%= g.hidden_field :perspective_id, :value => @perspective.id %>
-    
+
       <%= g.label "Periodos" %>
-      <%= g.select :num_periods, options_for_select([["Mensual", 12], ["Semestral", 6], ["Trimestral", 4], ["Anual", 1]]), {}, { :id=>"periods", :class => 'form-control' } %>
-      
+      <%= g.select :num_periods, options_for_select([["Selecciona los períodos", 0], ["Mensual", 12], ["Bimestral", 6], ["Trimestral", 4], ["Semestral", 2], ["Anual", 1]]), {}, { :id=>"periods", :class => 'form-control' } %>
+
       <h3>Metas</h3>
       <div id="field">
         <%= g.fields_for :periods do |p| %>
@@ -63,14 +63,14 @@
         <% end %>
       </div>
       <div id="metas"></div>
-      
+
       <br>
       <div class="row">
         <div class="col-lg-offset-10 col-lg-2">
           <%= submit_tag("Crear objetivo", :class=>'btn btn-default') %>
         </div>
       </div>
-      
+
     <% end %>
   </body>
 </html>

@@ -1,14 +1,19 @@
-<div>
-  <h1>Paso 2</h1>
-  <h3>Revisión de objetivos</h3>
-  <p align="justify">
-    Chachara
-  </p>
+<body class="fondo">
+  <div class="row mt">
+    <div class="col-lg-offset-1 col-lg-10 colEvaluacion">
+      <h1 class="titulo">Revisión de Objetivos</h1><br>
 
-  <div>
-    <% @employees.each do |e| %>
-      <%= e.name %>
-      <%= link_to "Revisar", evaluator_step_two_employee_path(e) %>
-    <% end %>
+      <div>
+        <p align="justify">
+        </p>
+      </div>
+
+      <div>
+        <% @employees.each do |e| %>
+          <%= e.name %>
+          <%= link_to "Revisar", evaluator_step_two_employee_path(e) %>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
+</body>

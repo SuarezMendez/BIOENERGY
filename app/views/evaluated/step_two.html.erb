@@ -3,29 +3,32 @@
     <div class="col-lg-offset-1 col-lg-10 colEvaluacion">
       <h1 class="titulo">Paso 2</h1>
       <h3>Creación de objetivos</h3>
-      <p align="justify">
-        Apreciado(a) <%= @user.name %><br><br>
+      <div>
+        <p align="justify">
+          Apreciado(a) <%= @user.name %><br><br>
 
-        Para desarrollar la fijación de objetivos individuales usted deberá tener los Objetivos de su área o los objetivos de su Jefe inmediato. Con base en estos usted deberá:<br><br>
+          Para desarrollar la fijación de objetivos individuales usted deberá tener los Objetivos de su área o los objetivos de su Jefe inmediato. Con base en estos usted deberá:<br><br>
 
-        <b>Para fijar sus objetivos</b><br><br>
+          <b>Para fijar sus objetivos</b><br><br>
 
-        <b>a.</b> Identificar sus principales responsabilidades o frentes de gestión y/o los requerimientos especificos de sus cliente (interno o externo), a partir de los cuales usted podrá Identificar, proponer y acordar con su jefe inmediato, los objetivos que desarrollará en el ciclo de gestión de desempeño del año en curso.<br>
-        <b>b.</b> Definir y redactar minimo 2 y maximo de 3 a 5 objetivos segun lo requiera su área. Para redactar su objetivo se plantean dos ejemplos:<br>
-        Ejemplo 1: "Obtener un costo de producción por debajo de $X  a 31 de Diciembre de 2017"<br>
-        Ejemplo 2: "Diseñar e implementar a 31 de Diciembre de 2017 un sistema de información que permita realizar seguimiento al cumplimiento de presupuesto de producción, con base en la medición del X% de avance del cronograma establecido".<br>
-        <b>c.</b> Definir el indicador de gestión que puede medir el objetivo propuesto, un indicador mide el logro de un objetivo. Los indicadores tienen dos tipos de naturalezas:<br>
-          * Ascendente: Significa que entre mas resultado es mejor, el cumplimiento se calcula como ejecutado / meta<br>
-          * Descendente: Significa que entre menos resultado es mejor,  el cumplimiento se calcula como +1 + (1-(ejecutado / meta)<br>
-        <b>d.</b> Establecer un porcentaje de participación para cada objetivo, de tal forma que la sumatoria de un 100%. Se recomienda que un objetivo no pese menos del 10%. Asignar un peso porcentual (%) consiste en la importancia que tiene dicho objetivo para el desarrollo de las funciones principales del trabajador.<br>
-        <b>e.</b> Asignar la meta a la que se quiere llegar en Diciembre de 2017 y calcular a partir de esa meta el valor que se debería llevar a Septiembre 30 de 2017. Aqui finaliza el proceso de Fijación de objetivos.<br>
+          <b>a.</b> Identificar sus principales responsabilidades o frentes de gestión y/o los requerimientos especificos de sus cliente (interno o externo), a partir de los cuales usted podrá Identificar, proponer y acordar con su jefe inmediato, los objetivos que desarrollará en el ciclo de gestión de desempeño del año en curso.<br>
+          <b>b.</b> Definir y redactar minimo 2 y maximo de 3 a 5 objetivos segun lo requiera su área. Para redactar su objetivo se plantean dos ejemplos:<br>
+          Ejemplo 1: "Obtener un costo de producción por debajo de $X  a 31 de Diciembre de 2017"<br>
+          Ejemplo 2: "Diseñar e implementar a 31 de Diciembre de 2017 un sistema de información que permita realizar seguimiento al cumplimiento de presupuesto de producción, con base en la medición del X% de avance del cronograma establecido".<br>
+          <b>c.</b> Definir el indicador de gestión que puede medir el objetivo propuesto, un indicador mide el logro de un objetivo. Los indicadores tienen dos tipos de naturalezas:<br>
+            * Ascendente: Significa que entre mas resultado es mejor, el cumplimiento se calcula como ejecutado / meta<br>
+            * Descendente: Significa que entre menos resultado es mejor,  el cumplimiento se calcula como +1 + (1-(ejecutado / meta)<br>
+          <b>d.</b> Establecer un porcentaje de participación para cada objetivo, de tal forma que la sumatoria de un 100%. Se recomienda que un objetivo no pese menos del 10%. Asignar un peso porcentual (%) consiste en la importancia que tiene dicho objetivo para el desarrollo de las funciones principales del trabajador.<br>
+          <b>e.</b> Asignar la meta a la que se quiere llegar en Diciembre de 2017 y calcular a partir de esa meta el valor que se debería llevar a Septiembre 30 de 2017. Aqui finaliza el proceso de Fijación de objetivos.<br>
 
-        <br>
-      </p>
+          <br>
+        </p>
+      </div>
 
       <div>
         <%= link_to "Corporativos", evaluated_step_two_goals_path(:g_type => 1), class:"btn btn-default" %>
         <%= link_to "Personales", evaluated_step_two_goals_path(:g_type => 2), class:"btn btn-default" %>
+        <%= link_to "Ver Comentarios", evaluation_path(current_user.evaluation), class:"btn btn-default" %>
       </div>
     </div>
   </div>
