@@ -25,11 +25,51 @@
         </p>
       </div>
 
+      <table class="table">
+        <thead>
+          <tr class="success">
+            <th>Tipo de Objetivo</th>
+            <th>Objetivo</th>
+            <th>Indicador</th>
+            <th>Unidad de Medida</th>
+            <th>Tipo de Indicador</th>
+            <th>Peso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% Perspective.all.each do |p| %>
+            <% @user.get_goals_type(p.id).each do |g| %>
+              <tr>
+                <td><%= p.name %></td>
+                <td><%= g.description %></td>
+                <% if g.indicator == 0 %>
+                  <td>Ascendente</td>
+                <% else %>
+                  <td>Descendente</td>
+                <% end %>
+                <td><%= Measure.find(g.measure_id).name %></td>
+                <td><%= g.formula %></td>
+                <td><%= g.weight %>%</td>
+              </tr>
+            <% end %>
+            <tr class="success">
+              <td><b>Total <%= p.name %></b></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><%= @user.get_goals_type(p.id).get_total_weight %>%</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
       <div>
-        <%= link_to "Corporativos", evaluated_step_two_goals_path(:g_type => 1), class:"btn btn-default" %>
-        <%= link_to "Personales", evaluated_step_two_goals_path(:g_type => 2), class:"btn btn-default" %>
-        <%= link_to "Ver Comentarios", evaluation_path(current_user.evaluation), class:"btn btn-default" %>
+        <%= link_to "Atrás", evaluated_path %>
+        <%= link_to "Crear", new_goal_path %>
+        <%= link_to "Aceptar", evaluated_path %>
       </div>
+
     </div>
   </div>
 </div>

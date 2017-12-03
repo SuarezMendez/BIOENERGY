@@ -5,27 +5,25 @@ class GoalsController < ApplicationController
   def new
     @goal = Goal.new
     @goal.periods.build
-    @perspective = Perspective.find(params[:g_type])
   end
 
   def show
   end
 
   def edit
-    @perspective = Perspective.find(params[:g_type])
   end
 
   def destroy
     @perspective = @goal.perspective_id
     @goal.destroy
-    redirect_to evaluated_step_two_goals_path(:g_type => @perspective)
+    redirect_to evaluated_step_two_path
   end
 
   def update
     if @goal.update(goal_params)
-      redirect_to evaluated_step_two_goals_path(:g_type => @goal.perspective_id)
+      redirect_to evaluated_step_two_path
     else
-      redirect_to edit_goal_path(:g_type => @goal.perspective_id)
+      redirect_to edit_goal_path
     end
   end
 
@@ -33,13 +31,12 @@ class GoalsController < ApplicationController
   end
 
   def create
-    @g_type = params[:g_type]
     @goal = Goal.new(goal_params)
     if @goal.save
-      redirect_to evaluated_step_two_goals_path(:g_type => @goal.perspective_id)
+      redirect_to evaluated_step_two_path
     else
       @errors = @goal.errors
-      redirect_to new_goal_path(:g_type => @goal.perspective_id)
+      render new_goal_path
     end
   end
 

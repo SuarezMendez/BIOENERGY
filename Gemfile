@@ -39,6 +39,8 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'pg'
 
+gem 'rails-i18n'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

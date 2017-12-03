@@ -1,5 +1,13 @@
 <body class="fondo">
   <div class="row mt">
+
+    <% flash.each do |name, msg| %>
+      <div class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      </div>
+    <% end %>
+
     <div class="col-lg-offset-1 col-lg-10 colEvaluacion">
       <h1 class="titulo">Bienvenido</h1><br>
 

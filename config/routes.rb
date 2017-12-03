@@ -16,11 +16,8 @@ Rails.application.routes.draw do
   get "evaluated_four" => "evaluated#step_four", :as => "evaluated_step_four"
 
   get "evaluator_index" => "evaluator#index", :as => "evaluator_index"
-  get "evaluator_one" => "evaluator#step_one", :as => "evaluator_step_one"
-  get "evaluator_accept" => "evaluator#accept", :as => "evaluator_accept"
-  get "evaluator_two" => "evaluator#step_two", :as => "evaluator_step_two"
-  get "evaluator_two_employee/:id" => "evaluator#step_two_employee", :as => "evaluator_step_two_employee"
-  get "evaluator_two_goals/:id" => "evaluator#step_two_goals", :as => "evaluator_step_two_goals"
+  get "evaluator_one/:id" => "evaluator#step_one", :as => "evaluator_step_one"
+  get "evaluator_two/:id" => "evaluator#step_two", :as => "evaluator_step_two"
   get "evaluator_three" => "evaluator#step_three", :as => "evaluator_step_three"
   get "evaluator_four" => "evaluator#step_four", :as => "evaluator_step_four"
 

@@ -7,7 +7,10 @@
 
       <div>
         <p align="justify">
-          
+          Apreciado(a) <%= @user.name %><br><br>
+          A continuación encontrará una lista desplegable de los trabajadores de Bioenergy, que tienen personal a cargo.<br><br>
+          Por favor tenga en cuenta que la persona que usted seleccione, ha debido estar direccionando su trabajo, retroalimentándolo y/o apoyándolo en la solución de problemas u obstaculos que se le puedan presentar dentro del desarrollo diario de sus actividades en el cargo que usted evaluará, durante el 2017.<br><br>
+          Con la persona que usted vaya a seleccionar, deberá acordar y calificar los objetivos individuales, que usted fijará para evaluar su desempeño en el año 2017.<br><br>
         </p>
       </div>
 
@@ -18,7 +21,6 @@
               <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
               <h5>No tienes jefes para seleccionar.</h5>
             </div>
-
           <% else %>
             <%= form_for @user, :html => {:class => ''} do |f| %>
               <%= f.collection_select :boss, @bosses, :id, :name, {:prompt => "Selecciona tu jefe"}, {:class=>'form-control'} %>

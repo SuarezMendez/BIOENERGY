@@ -43,9 +43,9 @@
         </div>
         <div class="col-sm-offset-8 col-sm-2">
           <% if @step == 0 || @step == 1 %>
-            <h4><%= link_to "Paso 1", evaluated_step_one_path, class:"btn btn-default" %></h4>
+            <h4><%= link_to "Selección de jefe inmendiato", evaluated_step_one_path, class:"btn btn-default" %></h4>
           <% elsif @step == 2 || @step == 3 %>
-            <h4><%= link_to "Paso 2", evaluated_step_two_path, class:"btn btn-default" %></h4>
+            <h4><%= link_to "Fijación de objetivos", evaluated_step_two_path, class:"btn btn-default" %></h4>
           <% elsif @step == 4 || @step == 5 %>
             <h4><%= link_to "Certificado", evaluation_path(@user.evaluation, format: :pdf), class:"btn btn-default" %></h4>
             <h4><%= link_to "Paso 3", evaluated_step_three_path, class:"btn btn-default" %></h4>

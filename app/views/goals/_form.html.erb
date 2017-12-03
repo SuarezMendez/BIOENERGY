@@ -18,20 +18,25 @@
   </head>
 
   <body>
+
     <%= form_with(model: goal, local: true, class:"") do |g| %>
-      <% if goal.errors.any? %>
-        <div class="error_messages">
-          <div class="alert alert-danger alert-dismissable">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-            <strong>Form is invalid</strong>
-            <ul>
-              <% for message in @goal.errors.full_messages %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      <% end %>
+    <% if goal.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        <b><%= t('activerecord.errors.template.header',
+  :model => User.model_name.human, :count => goal.errors.count) %></b>
+        <b><%= pluralize(goal.errors.count, "error") %>
+          prohibited this goal from being saved:</b>
+        <ul>
+          <% goal.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+      <%= g.label "Tipo de Objetivo" %>
+      <%= g.select :perspective_id, options_for_select([["Área", 1], ["Personal", 2]]), {}, {:class => 'form-control' } %>
 
       <%= g.label "Descripción" %>
       <%= g.text_field :description, class:"form-control" %>
@@ -49,7 +54,6 @@
       <%= g.number_field :weight, class:"form-control" %>
 
       <%= g.hidden_field :evaluation_id, :value => current_user.evaluation.id %>
-      <%= g.hidden_field :perspective_id, :value => @perspective.id %>
 
       <%= g.label "Periodos" %>
       <%= g.select :num_periods, options_for_select([["Selecciona los períodos", 0], ["Mensual", 12], ["Bimestral", 6], ["Trimestral", 4], ["Semestral", 2], ["Anual", 1]]), {}, { :id=>"periods", :class => 'form-control' } %>
@@ -67,7 +71,8 @@
       <br>
       <div class="row">
         <div class="col-lg-offset-10 col-lg-2">
-          <%= submit_tag("Crear objetivo", :class=>'btn btn-default') %>
+          <%= g.submit "Aceptar", class:"btn btn-default" %>
+
         </div>
       </div>
 
