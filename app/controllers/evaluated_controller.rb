@@ -16,20 +16,18 @@ class EvaluatedController < ApplicationController
   end
 
   def step_two_accept
-    @g_type = params[:g_type]
-    @goals = current_user.get_goals_type(@g_type)
-    if @goals.get_total_weight == 100
+    @evaluation = current_user.evaluation
+    if @evaluation.validate_weight == true
       current_user.update(step: 3)
-      redirect_to evaluated_path
+      redirect_to evaluated_path, :flash => { :notice => "Objetivos fijados correctamente" }
     else
-      redirect_to evaluated_step_two_goals_path(:g_type => @g_type), :flash => { :error => "Tus objetivos deben sumar 100%" }
+      redirect_to evaluated_step_two_path, :flash => { :error => "Tus objetivos deben sumar 100%" }
     end
-
   end
 
   def step_three
-    #@user = current_user
-    #@step = current_user.step
+    @user = current_user
+    @evaluation = @user.evaluation
   end
 
   def step_four

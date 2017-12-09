@@ -1,13 +1,43 @@
 <body class="fondo">
   <div class="row mt">
     <div class="col-lg-offset-1 col-lg-10 colEvaluacion">
-      <h1 class="titulo">Paso 3</h1><br>
-      <h3>Seguimiento de Objetivos</h3>
+      <h1 class="titulo">Seguimiento de Objetivos</h1><br>
       <div>
         <p align="justify">
         </p>
       </div>
-
+      <div>
+        <table class="table">
+          <thead>
+            <tr class="success">
+              <th>Tipo de Objetivo</th>
+              <th>Objetivo</th>
+              <th>Indicador</th>
+              <th>Unidad de Medida</th>
+              <th>Tipo de Indicador</th>
+              <th>Ver</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% Perspective.all.each do |p| %>
+              <% @user.get_goals_type(p.id).each do |g| %>
+                <tr>
+                  <td><%= p.name %></td>
+                  <td><%= g.description %></td>
+                  <% if g.indicator == 0 %>
+                    <td>Ascendente</td>
+                  <% else %>
+                    <td>Descendente</td>
+                  <% end %>
+                  <td><%= Measure.find(g.measure_id).name %></td>
+                  <td><%= g.formula %></td>
+                  <td><%= link_to "Ver",goal_path(g) %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </body>

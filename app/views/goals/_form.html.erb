@@ -44,7 +44,7 @@
       <%= g.label "Indicador" %>
       <%= g.select :indicator, options_for_select([["Ascendente", 0], ["Descendente", 1]]), {}, {:class => 'form-control' } %>
 
-      <%= g.label "Formula" %>
+      <%= g.label "Fórmula" %>
       <%= g.text_field :formula, class:"form-control" %>
 
       <%= g.label "Unidad de medida" %>
@@ -53,10 +53,10 @@
       <%= g.label "Peso" %>
       <%= g.number_field :weight, class:"form-control" %>
 
-      <%= g.hidden_field :evaluation_id, :value => current_user.evaluation.id %>
-
       <%= g.label "Periodos" %>
       <%= g.select :num_periods, options_for_select([["Selecciona los períodos", 0], ["Mensual", 12], ["Bimestral", 6], ["Trimestral", 4], ["Semestral", 2], ["Anual", 1]]), {}, { :id=>"periods", :class => 'form-control' } %>
+
+      <%= g.hidden_field :evaluation_id, :value => @evaluation.id %>
 
       <h3>Metas</h3>
       <div id="field">
@@ -72,7 +72,6 @@
       <div class="row">
         <div class="col-lg-offset-10 col-lg-2">
           <%= g.submit "Aceptar", class:"btn btn-default" %>
-
         </div>
       </div>
 

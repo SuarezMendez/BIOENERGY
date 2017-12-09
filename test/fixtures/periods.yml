@@ -9,6 +9,7 @@
 #  reached    :integer
 #  compromise :string
 #  commentary :string
+#  approved   :boolean
 #  goal_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

@@ -10,11 +10,11 @@
           <div>
             <%= e.name %>
             <% if e.step == 1 %>
-              <%= link_to "Paso 1", evaluator_step_one_path(e) %>
+              <%= link_to "Aprobar Empleado", evaluator_step_one_path(e) %>
               <div class="progress">
                 <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
                   aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width:25%">
-                    ¡Jefe seleccionado!
+                    ¡Esperando por aprobación!
                 </div>
               </div>
             <% elsif e.step == 2 %>
@@ -26,11 +26,11 @@
                 </div>
               </div>
             <% elsif e.step == 3 %>
-              <%= link_to "Paso 2", evaluator_step_two_path(e) %>
+              <%= link_to "Aprobar Objetivos", evaluator_step_two_path(e) %>
               <div class="progress">
                 <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
                   aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
-                    ¡Objetivos creados!
+                    ¡Esperando por aprobar objetivos!
                 </div>
               </div>
             <% elsif e.step == 4 %>
@@ -38,7 +38,7 @@
               <div class="progress">
                 <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
                   aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width:62%">
-                    ¡Esperando para revisión!
+                    ¡Realizando seguimiento!
                 </div>
               </div>
             <% end %>

@@ -16,9 +16,9 @@ class EvaluationsController < ApplicationController
 
   def update
     if @evaluation.update(evaluation_params)
-      redirect_to evaluator_step_two_path
+      redirect_to evaluator_path
     else
-      redirect_to evaluator_step_two_employee(@evaluation.user)
+      redirect_to evaluator_step_two_path(@evaluation.user)
     end
   end
 

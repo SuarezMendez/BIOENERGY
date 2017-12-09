@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20171115173745) do
     t.integer "reached"
     t.string "compromise"
     t.string "commentary"
+    t.boolean "approved"
     t.integer "goal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

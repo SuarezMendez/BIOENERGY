@@ -8,6 +8,7 @@ class CreatePeriods < ActiveRecord::Migration[5.1]
       t.integer     :reached
       t.string      :compromise
       t.string      :commentary
+      t.boolean     :approved
       t.references  :goal, foreign_key: true
 
       t.timestamps

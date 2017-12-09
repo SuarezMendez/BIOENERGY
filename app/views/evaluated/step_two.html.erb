@@ -1,15 +1,20 @@
 <body class="fondo">
   <div class="row mt">
+
+    <% flash.each do |name, msg| %>
+      <div class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      </div>
+    <% end %>
+
     <div class="col-lg-offset-1 col-lg-10 colEvaluacion">
-      <h1 class="titulo">Paso 2</h1>
-      <h3>Creación de objetivos</h3>
+      <h1 class="titulo">Fijación de Objetivos</h1>
       <div>
         <p align="justify">
           Apreciado(a) <%= @user.name %><br><br>
 
           Para desarrollar la fijación de objetivos individuales usted deberá tener los Objetivos de su área o los objetivos de su Jefe inmediato. Con base en estos usted deberá:<br><br>
-
-          <b>Para fijar sus objetivos</b><br><br>
 
           <b>a.</b> Identificar sus principales responsabilidades o frentes de gestión y/o los requerimientos especificos de sus cliente (interno o externo), a partir de los cuales usted podrá Identificar, proponer y acordar con su jefe inmediato, los objetivos que desarrollará en el ciclo de gestión de desempeño del año en curso.<br>
           <b>b.</b> Definir y redactar minimo 2 y maximo de 3 a 5 objetivos segun lo requiera su área. Para redactar su objetivo se plantean dos ejemplos:<br>
@@ -64,10 +69,17 @@
         </tbody>
       </table>
 
+      <% if !@user.evaluation.comment.nil? %>
+        <div>
+          <h3>Comentarios:</h3>
+          <p align="justify"><%= @user.evaluation.comment %></p>
+        </div>
+      <% end %>
+
       <div>
         <%= link_to "Atrás", evaluated_path %>
         <%= link_to "Crear", new_goal_path %>
-        <%= link_to "Aceptar", evaluated_path %>
+        <%= link_to "Aceptar", evaluated_step_two_accept_path %>
       </div>
 
     </div>

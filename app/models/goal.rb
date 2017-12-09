@@ -25,6 +25,10 @@ class Goal < ApplicationRecord
   validates_presence_of :description, :indicator, :formula, :weight, :num_periods,
     :perspective_id, :measure_id
 
+  def get_period
+    self.periods[(((Time.now.month-1) * self.num_periods) / 12 )]
+  end
+
   def self.get_goals_from_user(user)
     Goal.where(user_id: user.id)
   end

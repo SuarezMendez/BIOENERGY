@@ -15,16 +15,24 @@ class Evaluation < ApplicationRecord
   belongs_to  :user
   has_many    :goals, dependent:  :destroy
 
-  before_save :change_step
-
   accepts_nested_attributes_for :goals
 
-  def change_step
+  before_save :update_step
+
+  def update_step
     if self.approved == true
-      self.user.update(step: 4)
-    else
-      self.user.update(step: 3)
+      self.user.update_step
     end
+  end
+
+  def validate_weight
+    $flag = true
+    Perspective.all.each do |p|
+      if self.goals.where(perspective_id: p.id).get_total_weight != 100
+        $flag = false
+      end
+    end
+    $flag
   end
 
 end

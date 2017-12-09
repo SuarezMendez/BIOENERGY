@@ -5,12 +5,15 @@ class GoalsController < ApplicationController
   def new
     @goal = Goal.new
     @goal.periods.build
+    @evaluation = current_user.evaluation
   end
 
   def show
+    @period = @goal.get_period
   end
 
   def edit
+    @evaluation = current_user.evaluation
   end
 
   def destroy

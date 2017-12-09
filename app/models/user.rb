@@ -50,6 +50,10 @@ class User < ApplicationRecord
     self.evaluation.goals.where(perspective_id: type)
   end
 
+  def update_step
+    self.update(step: self.step+1)
+  end
+
   def self.authenticate(document, password)
     user = find_by_document(document)
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)

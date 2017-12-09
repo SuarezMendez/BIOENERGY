@@ -11,19 +11,45 @@
       </div>
 
       <div>
-        <% Perspective.all.each do |p| %>
-          <div>
-            <h4><%= p.name %></h4>
-            <% @user.get_goals_type(p.id).each do |g| %>
-              <div>
-                <p><%= g.description %> <%= g.weight %>%</p>
-              </div
-              <br>
-            <% end %>
-            <h4>Total: <%= @user.get_goals_type(p.id).get_total_weight %>%</h4>
-          </div>
-        <% end %>
 
+        <table class="table">
+          <thead>
+            <tr class="success">
+              <th>Tipo de Objetivo</th>
+              <th>Objetivo</th>
+              <th>Indicador</th>
+              <th>Unidad de Medida</th>
+              <th>Tipo de Indicador</th>
+              <th>Peso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% Perspective.all.each do |p| %>
+              <% @user.get_goals_type(p.id).each do |g| %>
+                <tr>
+                  <td><%= p.name %></td>
+                  <td><%= g.description %></td>
+                  <% if g.indicator == 0 %>
+                    <td>Ascendente</td>
+                  <% else %>
+                    <td>Descendente</td>
+                  <% end %>
+                  <td><%= Measure.find(g.measure_id).name %></td>
+                  <td><%= g.formula %></td>
+                  <td><%= g.weight %>%</td>
+                </tr>
+              <% end %>
+              <tr class="success">
+                <td><b>Total <%= p.name %></b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><%= @user.get_goals_type(p.id).get_total_weight %>%</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
         <%= form_for @evaluation do |f| %>
           <%= f.label "Comentario" %>

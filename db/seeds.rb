@@ -44,3 +44,9 @@ for i in 0..20
     area: Area.find(1), charge: Charge.find(rand(1..2)), departament: Departament.find(rand(1..2)), role:
     Role.find(rand(1..3)), password: "1234", password_confirmation: "1234")
 end
+
+#goals
+User.all.each do |u|
+  u.update(evaluation: Evaluation.create(approved: false, goals: [Goal.create(description: "Cumplir la misión empresariales.", indicator: 0, formula: "n",
+    weight: 100, num_periods: 1, perspective_id: 3, measure_id: 1, periods: [Period.create(number: 1, proposed: 90, commentary: "No comentarios", approved: false)])]))
+end
